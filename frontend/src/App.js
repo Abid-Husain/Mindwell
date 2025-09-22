@@ -30,7 +30,7 @@ const App = () => {
   // ---------------- API CALLS ----------------
   const callAI = async (message, mood) => {
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch('https://mindwell-19q8.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message, mood, user_name: userName })
