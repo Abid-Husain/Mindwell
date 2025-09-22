@@ -30,7 +30,7 @@ const App = () => {
   // ---------------- API CALLS ----------------
   const callAI = async (message, mood) => {
     try {
-      const response = await fetch('https://mindwell-19q8.onrender.com/api/chat', {
+      const response = await fetch('https://mindwell-70dh.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message, mood, user_name: userName })
@@ -44,7 +44,7 @@ const App = () => {
 
   const saveMood = async () => {
     try {
-      await fetch("http://localhost:8000/mood/add", {
+      await fetch("https://mindwell-70dh.onrender.com/mood/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -58,7 +58,7 @@ const App = () => {
   };
 
   const saveJournal = async () => {
-    await fetch("http://localhost:8000/journal/add", {
+    await fetch("https://mindwell-70dh.onrender.com/journal/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: 1, text: journalText })
@@ -68,7 +68,7 @@ const App = () => {
   };
 
   const submitTest = async () => {
-    const res = await fetch("http://localhost:8000/anxiety_test", {
+    const res = await fetch("https://mindwell-70dh.onrender.com/anxiety_test", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: 1, answers })
@@ -78,7 +78,7 @@ const App = () => {
   };
 
   const addHabit = async () => {
-    const res = await fetch("http://localhost:8000/habit/add", {
+    const res = await fetch("https://mindwell-70dh.onrender.com/habit/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: 1, habit, completed: false })
@@ -89,7 +89,7 @@ const App = () => {
   };
 
   const completeHabit = async (habitName) => {
-    await fetch(`http://localhost:8000/habit/complete?user_id=1&habit=${habitName}`, {
+    await fetch(`https://mindwell-70dh.onrender.com/habit/complete?user_id=1&habit=${habitName}`, {
       method: "POST"
     });
     setHabits(habits.map(h => h.habit === habitName ? { ...h, completed: true } : h));
